@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Student Guidance</title>
+  <meta name="description" content="Ask any question. Get easy answers, step-by-step guidance, Hinglish explanations for students."/>
+  <style>
+    body{font-family:system-ui, -apple-system, Segoe UI, Roboto; background:#f8fafc; margin:0; color:#0f172a}
+    header{padding:20px; text-align:center}
+    .container{max-width:900px; margin:auto; padding:16px}
+    .search{display:flex; gap:8px}
+    input{flex:1; padding:12px; border-radius:10px; border:1px solid #cbd5e1}
+    button{padding:12px 16px; border-radius:10px; border:none; background:#2563eb; color:#fff}
+    .card{background:#fff; border-radius:14px; padding:16px; margin-top:16px; box-shadow:0 10px 20px rgba(0,0,0,.06)}
+    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px}
+    footer{text-align:center; padding:24px; color:#64748b}
+    .tag{display:inline-block; background:#e2e8f0; padding:6px 10px; border-radius:999px; margin:4px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AI Student Guidance</h1>
+    <p>Ask any question • Easy Hinglish explanation • Step-by-step</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <div class="search">
+        <input id="q" placeholder="Type your question or topic (Hindi / English)"/>
+        <button onclick="search()">Search</button>
+      </div>
+      <div id="result"></div>
+    </div>
+
+    <div class="card">
+      <h3>Popular Questions</h3>
+      <span class="tag" onclick="quick('What is force?')">What is force?</span>
+      <span class="tag" onclick="quick('Newton first law')">Newton first law</span>
+      <span class="tag" onclick="quick('Photosynthesis')">Photosynthesis</span>
+    </div>
+
+    <div class="grid">
+      <div class="card"><h3>Notes / Topics</h3><p>Subject-wise easy notes (future ready)</p></div>
+      <div class="card"><h3>Ask a Question</h3><p>Type any doubt and get guidance</p></div>
+      <div class="card"><h3>How to Learn</h3><p>Study tips & learning roadmap</p></div>
+    </div>
+  </div>
+
+  <footer>© 2026 AI Education • Ready for AI & Admin</footer>
+
+<script>
+function quick(t){document.getElementById('q').value=t; search();}
+function search(){
+  const q=document.getElementById('q').value.trim();
+  if(!q) return;
+  const r=document.getElementById('result');
+  r.innerHTML = `
+    <div class='card'>
+      <h3>Answer</h3>
+      <p><b>${q}</b> ka simple answer yahan aayega.</p>
+      <h4>Easy Explanation</h4>
+      <p>Hinglish me simple explanation for students.</p>
+      <h4>Step-by-step</h4>
+      <ol><li>Concept samjho</li><li>Example dekho</li><li>Practice karo</li></ol>
+      <h4>Next Steps</h4>
+      <p>Related topics padho.</p>
+    </div>`;
+}
+</script>
+</body>
+</html>
